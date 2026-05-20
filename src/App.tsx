@@ -11,6 +11,12 @@ import { Skills } from "./components/sections/Skills";
 function App() {
   return (
     <div className="min-h-screen bg-hero-glow text-slate-100">
+      <a
+        href="#hero"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 rounded-full bg-slate-950 px-4 py-2 text-sm text-white shadow-lg transition"
+      >
+        Aller au contenu
+      </a>
       <Navbar />
       <main className="container mx-auto flex flex-col gap-14 px-4 py-8 sm:px-6 lg:px-8">
         <Hero />
