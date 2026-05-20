@@ -1,5 +1,6 @@
 import { Footer } from "./components/layout/Footer";
 import { Navbar } from "./components/layout/Navbar";
+import { ScrollProgress } from "./components/layout/ScrollProgress";
 import { About } from "./components/sections/About";
 import { Contact } from "./components/sections/Contact";
 import { Experience } from "./components/sections/Experience";
@@ -11,6 +12,7 @@ import { Skills } from "./components/sections/Skills";
 function App() {
   return (
     <div className="min-h-screen bg-hero-glow text-slate-100">
+      <ScrollProgress />
       <a
         href="#hero"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 rounded-full bg-slate-950 px-4 py-2 text-sm text-white shadow-lg transition"

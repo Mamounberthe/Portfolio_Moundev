@@ -1,70 +1,83 @@
 import { motion } from "framer-motion";
+import { Code2, Layers, ShieldCheck } from "lucide-react";
 import { portfolio } from "../../data/portfolio";
+import { GlassCard } from "../ui/GlassCard";
+import { SectionHeading } from "../ui/SectionHeading";
+import { TagPill } from "../ui/TagPill";
+
+const skillCategories = [
+  {
+    title: "Front-end",
+    description: "Interface pixel-perfect, responsive et réactive avec React et Tailwind.",
+    icon: <Code2 className="h-5 w-5" />,
+  },
+  {
+    title: "Back-end",
+    description: "API robustes et intégration Laravel orientée performances.",
+    icon: <Layers className="h-5 w-5" />,
+  },
+  {
+    title: "Qualité",
+    description: "Code propre, architecture claire et livraison orientée produit.",
+    icon: <ShieldCheck className="h-5 w-5" />,
+  },
+];
 
 export function Skills() {
   return (
-    <section id="skills" className="space-y-6">
-      <div className="space-y-3">
-        <p className="text-sm uppercase tracking-[0.35em] text-orange-300">Compétences</p>
-        <h2 className="text-3xl font-semibold text-white sm:text-4xl">Ce que je maîtrise</h2>
-      </div>
+    <section id="skills" className="space-y-10">
+      <SectionHeading
+        eyebrow="Compétences"
+        title="Tech stack premium et approche produit"
+        description="J’apporte un savoir-faire complet pour construire des produits digitaux performants, fiables et élégants."
+      />
 
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 28 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="grid gap-6 lg:grid-cols-[1.3fr_0.9fr]"
+        transition={{ duration: 0.85, ease: "easeOut" }}
+        className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]"
       >
-        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-soft backdrop-blur-xl">
-          <p className="text-slate-300 leading-8">
-            J’aide les équipes et les projets à passer du concept à la production avec une approche technique et esthétique.
-            Mes compétences couvrent l’intégration front-end réactive, le back-end Laravel et la création d’expériences digitalisées
-            performantes.
-          </p>
+        <GlassCard className="p-8">
+          <div className="grid gap-5">
+            <div className="rounded-[2rem] border border-white/10 bg-slate-950/90 p-6">
+              <p className="text-sm uppercase tracking-[0.35em] text-orange-300">Stack</p>
+              <p className="mt-4 text-slate-300 leading-8">
+                Un ensemble technique choisi pour des interfaces rapides, une architecture solide et des expériences utilisateur premium.
+              </p>
+            </div>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            {portfolio.skills.map((skill) => (
-              <motion.span
-                key={skill}
-                whileHover={{ y: -4, scale: 1.02 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-                className="rounded-3xl border border-white/10 bg-slate-950/80 px-4 py-3 text-sm text-slate-100 shadow-[0_10px_30px_rgba(15,23,42,0.2)]"
-              >
-                {skill}
-              </motion.span>
-            ))}
+            <div className="grid gap-3 sm:grid-cols-2">
+              {portfolio.skills.map((skill) => (
+                <motion.div
+                  key={skill}
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  className="rounded-3xl border border-white/10 bg-slate-950/80 px-4 py-3 text-sm font-medium text-slate-100 shadow-[0_10px_30px_rgba(15,23,42,0.2)]"
+                >
+                  {skill}
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
+        </GlassCard>
 
-        <div className="space-y-4 rounded-[2rem] border border-white/10 bg-surface-950/90 p-8 shadow-soft">
-          <motion.div
-            initial={{ opacity: 0, x: -16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.75, ease: "easeOut" }}
-            className="rounded-[2rem] border border-white/5 bg-gradient-to-br from-orange-500/10 to-slate-950/80 p-6"
-          >
-            <p className="text-sm uppercase tracking-[0.35em] text-orange-300">Focus</p>
-            <h3 className="mt-3 text-xl font-semibold text-white">Front-end moderne</h3>
-            <p className="mt-3 text-slate-300 leading-7">
-              Construction d’interfaces rapides et responsives avec React, Tailwind et des animations maîtrisées.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.75, ease: "easeOut", delay: 0.1 }}
-            className="rounded-[2rem] border border-white/5 bg-slate-900/90 p-6"
-          >
-            <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Back-end & intégration</p>
-            <h3 className="mt-3 text-xl font-semibold text-white">Laravel et API</h3>
-            <p className="mt-3 text-slate-300 leading-7">
-              Mise en place d’architectures robustes, d’APIs sécurisées et d’expériences métiers fiables.
-            </p>
-          </motion.div>
+        <div className="space-y-4">
+          {skillCategories.map((category, index) => (
+            <GlassCard key={category.title} className="p-6">
+              <div className="flex items-center gap-3 text-slate-100">
+                <span className="flex h-11 w-11 items-center justify-center rounded-3xl bg-slate-900/80 text-orange-300 shadow-glow">
+                  {category.icon}
+                </span>
+                <div>
+                  <p className="text-sm uppercase tracking-[0.35em] text-slate-400">{category.title}</p>
+                  <p className="mt-3 text-lg font-semibold text-white">{category.title}</p>
+                </div>
+              </div>
+              <p className="mt-4 text-slate-300 leading-7">{category.description}</p>
+            </GlassCard>
+          ))}
         </div>
       </motion.div>
     </section>
