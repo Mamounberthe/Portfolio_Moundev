@@ -27,7 +27,7 @@ export function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.85, ease: "easeOut" }}
-          className="space-y-8"
+          className="order-2 space-y-8 lg:order-1"
         >
           <div className="inline-flex items-center gap-3 rounded-full border border-[var(--accent)]/20 bg-[var(--accent)]/10 px-4 py-2 text-sm uppercase tracking-[0.35em] text-[var(--accent)] shadow-[0_10px_50px_rgba(255,122,24,0.12)]">
             {portfolio.role}
@@ -44,36 +44,38 @@ export function Hero() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-3">
-            <Button href="#contact" className="min-w-[180px]" variant="solid">
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Button href="#contact" className="w-full sm:w-auto min-w-[180px]" variant="solid">
               Me contacter
               <ArrowRight className="h-4 w-4" />
             </Button>
-            <Button href="#projects" className="min-w-[180px]" variant="outline">
+            <Button href="#projects" className="w-full sm:w-auto min-w-[180px]" variant="outline">
               Voir mes projets
             </Button>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-[var(--muted)]">
-            <a
-              href={portfolio.socials[0].href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
-            >
-              <Github className="h-5 w-5" />
-            </a>
-            <a
-              href={portfolio.socials[1].href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] transition hover:border-[var(--secondary)] hover:text-[var(--secondary)]"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <span className="rounded-full border border-[var(--border)] bg-[var(--card-strong)] px-4 py-2 text-sm text-[var(--muted)]">
+          <div className="space-y-3 text-[var(--muted)]">
+            <div className="flex items-center gap-3">
+              <a
+                href={portfolio.socials[0].href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-3xl border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <a
+                href={portfolio.socials[1].href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-3xl border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] transition hover:border-[var(--secondary)] hover:text-[var(--secondary)]"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+            </div>
+            <span className="inline-flex rounded-full border border-[var(--border)] bg-[var(--card-strong)] px-4 py-2 text-sm text-[var(--muted)]">
               Freelance / Startup engineer
             </span>
           </div>
@@ -83,7 +85,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={reduce ? { opacity: 1 } : { opacity: 1, ...floating }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="relative mx-auto w-full max-w-[420px]"
+          className="relative mx-auto w-full max-w-[400px] order-1 lg:order-2"
         >
           <GlassCard className="overflow-hidden p-6">
             <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-orange-500/10 to-transparent" />

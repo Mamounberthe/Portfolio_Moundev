@@ -1,8 +1,10 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Layers, Code2, ServerCog } from "lucide-react";
 import { portfolio } from "../../data/portfolio";
 
 export function Services() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section id="services" className="space-y-6">
       <div className="space-y-3">
@@ -15,7 +17,7 @@ export function Services() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.85, ease: "easeOut" }}
-        className="grid gap-6 md:grid-cols-3"
+        className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3"
       >
         {portfolio.services.map((service, index) => {
           const icons = [
@@ -27,9 +29,10 @@ export function Services() {
           return (
             <motion.article
               key={service.title}
-              whileHover={{ y: -8 }}
-              transition={{ type: "spring", stiffness: 120, damping: 16 }}
-              className="group relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--card)] p-6 shadow-soft backdrop-blur-xl transition duration-300 hover:shadow-[0_28px_90px_rgba(0,0,0,0.16)]"
+              whileHover={reduceMotion ? undefined : { y: -6 }}
+              whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 140, damping: 18 }}
+              className="group relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--card)] p-6 shadow-soft backdrop-blur-xl transition duration-300 motion-safe:hover:-translate-y-1 motion-safe:active:scale-[0.995]"
             >
               <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-[var(--accent)]/10 to-transparent opacity-70 blur-2xl" />
               <div className="relative space-y-4">

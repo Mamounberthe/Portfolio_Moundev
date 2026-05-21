@@ -20,9 +20,9 @@ export function About() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="grid gap-6 lg:grid-cols-[1.45fr_0.9fr]"
       >
-        <GlassCard className="relative overflow-hidden p-8">
+        <GlassCard className="relative overflow-hidden p-6 sm:p-8 lg:p-10">
           <div className="pointer-events-none absolute left-0 top-0 h-24 w-24 rounded-full bg-[var(--accent)]/10 blur-3xl" />
-          <div className="space-y-8">
+          <div className="space-y-7">
             <div className="space-y-4">
               <p className="text-[var(--muted)] leading-8">
                 {portfolio.description} Je construis des interfaces claires et modernes pour des projets web haut de gamme, en alliant design, performance et qualité technique.
@@ -33,11 +33,11 @@ export function About() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card-strong)] p-5">
+              <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card-strong)] p-6">
                 <p className="text-xs uppercase tracking-[0.3em] text-[var(--accent)]">Expertise</p>
                 <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">React & Laravel</p>
               </div>
-              <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card-strong)] p-5">
+              <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card-strong)] p-6">
                 <p className="text-xs uppercase tracking-[0.3em] text-[var(--secondary)]">Approche</p>
                 <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">Design système</p>
               </div>

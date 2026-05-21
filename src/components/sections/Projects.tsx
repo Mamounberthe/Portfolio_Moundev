@@ -11,7 +11,7 @@ export function Projects() {
         description="Des projets pensés pour la production, avec une interface premium, une architecture solide et une expérience utilisateur fluide."
       />
 
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {portfolio.projects.map((project, index) => (
           <ProjectCard key={project.title} index={index} {...project} />
         ))}

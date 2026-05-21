@@ -29,11 +29,11 @@ export function Contact() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]"
       >
-        <div className="rounded-[2rem] border border-[var(--border)] bg-[var(--card)] p-8 shadow-soft backdrop-blur-xl">
+        <div className="rounded-[2rem] border border-[var(--border)] bg-[var(--card)] p-6 shadow-soft backdrop-blur-xl sm:p-8">
           <p className="text-[var(--muted)] leading-8">{portfolio.contact.message}</p>
 
-          <div className="mt-10 space-y-5">
-            <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card-strong)] p-5">
+          <div className="mt-8 space-y-5">
+            <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card-strong)] p-5 sm:p-6">
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-[var(--accent)]/10 text-[var(--accent)]">
                   <Mail className="h-5 w-5" />
@@ -50,7 +50,7 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card)] p-5">
+            <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card)] p-5 sm:p-6">
               <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">Réseaux</p>
               <div className="mt-4 flex flex-wrap gap-3">
                 {portfolio.socials.map((social) => (
@@ -59,7 +59,7 @@ export function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-3xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-sm text-[var(--foreground)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                    className="inline-flex min-w-[140px] items-center gap-2 rounded-3xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-sm text-[var(--foreground)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
                   >
                     {social.label === "GitHub" ? <Github className="h-4 w-4" /> : <Linkedin className="h-4 w-4" />}
                     {social.label}
@@ -111,7 +111,7 @@ export function Contact() {
 
           <button
             type="submit"
-            className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-orange-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-300"
+            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-orange-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 sm:w-auto"
           >
             Envoyer le message
             <Send className="h-4 w-4" />

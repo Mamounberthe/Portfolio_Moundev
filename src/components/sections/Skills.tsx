@@ -38,7 +38,7 @@ export function Skills() {
         transition={{ duration: 0.85, ease: "easeOut" }}
         className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]"
       >
-        <GlassCard className="p-8">
+        <GlassCard className="p-6 sm:p-8">
           <div className="grid gap-5">
             <div className="rounded-[2rem] border border-[var(--border)] bg-[var(--card-strong)] p-6">
               <p className="text-sm uppercase tracking-[0.35em] text-[var(--accent)]">Stack</p>
@@ -53,7 +53,7 @@ export function Skills() {
                   key={skill}
                   whileHover={{ y: -4, scale: 1.02 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
-                  className="rounded-3xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-sm font-medium text-[var(--foreground)] shadow-[0_10px_30px_rgba(0,0,0,0.12)]"
+                  className="flex min-h-[58px] items-center justify-center rounded-3xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-base font-medium text-[var(--foreground)] shadow-[0_10px_30px_rgba(0,0,0,0.12)]"
                 >
                   {skill}
                 </motion.div>

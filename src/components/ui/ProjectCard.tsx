@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import { TagPill } from "./TagPill";
 
@@ -12,34 +12,37 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ title, subtitle, tech, github, demo, index }: ProjectCardProps) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.08 }}
-      whileHover={{ y: -8 }}
-      className="group relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--card)] shadow-soft backdrop-blur-xl transition duration-300 hover:shadow-[0_25px_100px_rgba(0,0,0,0.2)]"
+      whileHover={reduceMotion ? undefined : { y: -6 }}
+      whileTap={{ scale: 0.98 }}
+      className="group relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--card)] shadow-soft backdrop-blur-xl transition-transform duration-300 motion-safe:hover:-translate-y-1 active:scale-[0.995]"
     >
       <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-br from-orange-500/10 to-transparent opacity-80" />
-      <div className="relative p-6">
-        <div className="mb-6 flex items-center justify-between gap-4">
+      <div className="relative p-6 sm:p-7">
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
           <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--accent)]/10 px-3 py-1 text-xs uppercase tracking-[0.28em] text-[var(--accent)]">
             Projet
           </span>
           <div className="flex items-center gap-3 text-[var(--muted)]">
-            <a href={github} target="_blank" rel="noreferrer" aria-label={`Voir le dépôt GitHub de ${title}`} className="transition hover:text-[var(--accent)]">
+            <a href={github} target="_blank" rel="noreferrer" aria-label={`Voir le dépôt GitHub de ${title}`} className="inline-flex h-10 w-10 items-center justify-center rounded-3xl border border-[var(--border)] bg-[var(--card)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]">
               <Github className="h-5 w-5" />
             </a>
-            <a href={demo} target="_blank" rel="noreferrer" aria-label={`Voir la démo de ${title}`} className="transition hover:text-[var(--accent)]">
+            <a href={demo} target="_blank" rel="noreferrer" aria-label={`Voir la démo de ${title}`} className="inline-flex h-10 w-10 items-center justify-center rounded-3xl border border-[var(--border)] bg-[var(--card)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]">
               <ExternalLink className="h-5 w-5" />
             </a>
           </div>
         </div>
 
-        <div className="space-y-4">
-          <div className="rounded-[1.75rem] bg-[var(--card-strong)] p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]">
-            <div className="h-44 overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+        <div className="space-y-5">
+          <div className="overflow-hidden rounded-[1.75rem] bg-[var(--card-strong)] p-4 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]">
+            <div className="relative h-40 overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,122,24,0.14),transparent_25%),radial-gradient(circle_at_bottom_right,rgba(75,140,255,0.12),transparent_25%)]" />
               <div className="relative h-full w-full before:absolute before:inset-0 before:bg-[linear-gradient(135deg,rgba(255,255,255,0.05),transparent_20%),linear-gradient(90deg,rgba(255,255,255,0.04),transparent_25%)]" />
             </div>
@@ -52,17 +55,17 @@ export function ProjectCard({ title, subtitle, tech, github, demo, index }: Proj
 
           <div className="flex flex-wrap gap-2">
             {tech.map((item) => (
-              <TagPill key={item} label={item} className="bg-white/5 text-slate-200 border-white/10" />
+              <TagPill key={item} label={item} className="bg-[var(--card-strong)] text-[var(--foreground)] border-[var(--border)]" />
             ))}
           </div>
 
-          <div className="mt-6 flex items-center justify-between gap-4">
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <span className="text-sm uppercase tracking-[0.3em] text-[var(--muted)]">Voir en action</span>
             <a
               href={demo}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-[var(--accent)]/20 bg-[var(--accent)]/10 px-4 py-2 text-sm font-medium text-[var(--accent)] transition hover:bg-[var(--accent)]/15 hover:text-[var(--foreground)]"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--accent)]/20 bg-[var(--accent)]/10 px-4 py-3 text-sm font-medium text-[var(--accent)] transition hover:bg-[var(--accent)]/15 hover:text-[var(--foreground)]"
             >
               Démo
               <ExternalLink className="h-4 w-4" />

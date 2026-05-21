@@ -13,11 +13,13 @@ export function Experience() {
         {portfolio.experience.map((item, index) => (
           <motion.div
             key={`${item.role}-${index}`}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -24 : 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.1 }}
-            className="relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--card)] p-6 shadow-soft backdrop-blur-xl transition duration-300 hover:shadow-[0_30px_90px_rgba(0,0,0,0.16)]"
+            whileHover={{ y: -4 }}
+            whileTap={{ scale: 0.995 }}
+            className="relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--card)] p-6 shadow-soft backdrop-blur-xl transition duration-300 motion-safe:hover:-translate-y-1 motion-safe:active:scale-[0.995]"
           >
             <div className="absolute inset-x-6 top-6 h-1 rounded-full bg-gradient-to-r from-[var(--accent)]/40 to-transparent" />
             <div className="relative space-y-4">

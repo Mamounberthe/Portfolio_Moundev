@@ -35,14 +35,14 @@ export function Button(props: ButtonProps) {
   };
 
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]";
+    "inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]";
   const variantClass = variantStyles[variant];
 
   if ("href" in props && props.href) {
     const { href, ...rest } = props as AnchorButtonProps;
     const anchorProps = rest as AnchorProps;
     return (
-      <motion.div whileHover={{ y: -2 }}>
+      <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} transition={{ duration: 0.2 }}>
         <a href={href} className={`${base} ${variantClass} ${className}`} {...anchorProps}>
           {children}
         </a>
@@ -52,7 +52,7 @@ export function Button(props: ButtonProps) {
 
   const buttonProps = props as ButtonElementProps;
   return (
-    <motion.div whileHover={{ y: -2 }}>
+    <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} transition={{ duration: 0.2 }}>
       <button type="button" className={`${base} ${variantClass} ${className}`} {...buttonProps}>
         {children}
       </button>
