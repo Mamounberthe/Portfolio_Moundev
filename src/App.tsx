@@ -11,11 +11,11 @@ import { Skills } from "./components/sections/Skills";
 
 function App() {
   return (
-    <div className="min-h-screen bg-hero-glow text-slate-100">
+    <div className="min-h-screen bg-[var(--page-bg)] text-[var(--text-primary)] transition-colors duration-500 ease-out">
       <ScrollProgress />
       <a
         href="#hero"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 rounded-full bg-slate-950 px-4 py-2 text-sm text-white shadow-lg transition"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 rounded-full bg-[var(--surface-strong)] px-4 py-2 text-sm text-[var(--text-primary)] shadow-lg transition"
       >
         Aller au contenu
       </a>

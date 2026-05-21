@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import type { FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Mail, Send, Github, Linkedin } from "lucide-react";
 import { portfolio } from "../../data/portfolio";
@@ -18,8 +18,8 @@ export function Contact() {
   return (
     <section id="contact" className="space-y-6">
       <div className="space-y-3">
-        <p className="text-sm uppercase tracking-[0.35em] text-orange-300">Contact</p>
-        <h2 className="text-3xl font-semibold text-white sm:text-4xl">Restons en contact</h2>
+        <p className="text-sm uppercase tracking-[0.35em] text-[var(--accent)]">Contact</p>
+        <h2 className="text-3xl font-semibold text-[var(--foreground)] sm:text-4xl">Restons en contact</h2>
       </div>
 
       <motion.div
@@ -29,20 +29,20 @@ export function Contact() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]"
       >
-        <div className="rounded-[2rem] border border-white/10 bg-surface-950/90 p-8 shadow-soft backdrop-blur-xl">
-          <p className="text-slate-300 leading-8">{portfolio.contact.message}</p>
+        <div className="rounded-[2rem] border border-[var(--border)] bg-[var(--card)] p-8 shadow-soft backdrop-blur-xl">
+          <p className="text-[var(--muted)] leading-8">{portfolio.contact.message}</p>
 
           <div className="mt-10 space-y-5">
-            <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
+            <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card-strong)] p-5">
               <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-orange-500/10 text-orange-300">
+                <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-[var(--accent)]/10 text-[var(--accent)]">
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-sm uppercase tracking-[0.3em] text-orange-300">Email</p>
+                  <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">Email</p>
                   <a
                     href={`mailto:${portfolio.contact.email}`}
-                    className="mt-1 block text-base font-medium text-white transition hover:text-orange-300"
+                    className="mt-1 block text-base font-medium text-[var(--foreground)] transition hover:text-[var(--accent)]"
                   >
                     {portfolio.contact.email}
                   </a>
@@ -50,8 +50,8 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
-              <p className="text-sm uppercase tracking-[0.3em] text-orange-300">Réseaux</p>
+            <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card)] p-5">
+              <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">Réseaux</p>
               <div className="mt-4 flex flex-wrap gap-3">
                 {portfolio.socials.map((social) => (
                   <a
@@ -59,7 +59,7 @@ export function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-3xl border border-white/10 bg-slate-900/80 px-4 py-3 text-sm text-slate-100 transition hover:border-orange-300 hover:text-orange-300"
+                    className="inline-flex items-center gap-2 rounded-3xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-sm text-[var(--foreground)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
                   >
                     {social.label === "GitHub" ? <Github className="h-4 w-4" /> : <Linkedin className="h-4 w-4" />}
                     {social.label}
@@ -72,39 +72,39 @@ export function Contact() {
 
         <motion.form
           onSubmit={handleSubmit}
-          className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-soft backdrop-blur-xl"
+          className="rounded-[2rem] border border-[var(--border)] bg-[var(--card)] p-8 shadow-soft backdrop-blur-xl"
         >
           <div className="grid gap-5">
-            <label className="space-y-2 text-sm text-slate-300">
+            <label className="space-y-2 text-sm text-[var(--muted)]">
               Nom
               <input
                 name="name"
                 type="text"
                 required
                 placeholder="Ton nom"
-                className="w-full rounded-3xl border border-white/10 bg-slate-950/90 px-4 py-3 text-white outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-300/20"
+                className="w-full rounded-3xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-[var(--foreground)] outline-none transition focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20"
               />
             </label>
 
-            <label className="space-y-2 text-sm text-slate-300">
+            <label className="space-y-2 text-sm text-[var(--muted)]">
               Adresse email
               <input
                 name="email"
                 type="email"
                 required
                 placeholder="exemple@domaine.com"
-                className="w-full rounded-3xl border border-white/10 bg-slate-950/90 px-4 py-3 text-white outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-300/20"
+                className="w-full rounded-3xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-[var(--foreground)] outline-none transition focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20"
               />
             </label>
 
-            <label className="space-y-2 text-sm text-slate-300">
+            <label className="space-y-2 text-sm text-[var(--muted)]">
               Message
               <textarea
                 name="message"
                 rows={6}
                 required
                 placeholder="Parle-moi de ton projet"
-                className="w-full rounded-3xl border border-white/10 bg-slate-950/90 px-4 py-3 text-white outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-300/20"
+                className="w-full rounded-3xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-[var(--foreground)] outline-none transition focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20"
               />
             </label>
           </div>

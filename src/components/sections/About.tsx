@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Sparkles, Layers, ShieldCheck, Clock3 } from "lucide-react";
+import { Sparkles, Layers, Clock3 } from "lucide-react";
 import { portfolio } from "../../data/portfolio";
 import { GlassCard } from "../ui/GlassCard";
 import { SectionHeading } from "../ui/SectionHeading";
@@ -21,25 +21,25 @@ export function About() {
         className="grid gap-6 lg:grid-cols-[1.45fr_0.9fr]"
       >
         <GlassCard className="relative overflow-hidden p-8">
-          <div className="pointer-events-none absolute left-0 top-0 h-24 w-24 rounded-full bg-orange-500/10 blur-3xl" />
+          <div className="pointer-events-none absolute left-0 top-0 h-24 w-24 rounded-full bg-[var(--accent)]/10 blur-3xl" />
           <div className="space-y-8">
             <div className="space-y-4">
-              <p className="text-slate-300 leading-8">
+              <p className="text-[var(--muted)] leading-8">
                 {portfolio.description} Je construis des interfaces claires et modernes pour des projets web haut de gamme, en alliant design, performance et qualité technique.
               </p>
-              <p className="text-slate-300 leading-8">
+              <p className="text-[var(--muted)] leading-8">
                 Mon approche est orientée produit : je conçois des expériences qui donnent confiance aux décideurs et facilitent la montée en charge des équipes.
               </p>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/90 p-5">
-                <p className="text-xs uppercase tracking-[0.3em] text-orange-300">Expertise</p>
-                <p className="mt-3 text-lg font-semibold text-white">React & Laravel</p>
+              <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card-strong)] p-5">
+                <p className="text-xs uppercase tracking-[0.3em] text-[var(--accent)]">Expertise</p>
+                <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">React & Laravel</p>
               </div>
-              <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/90 p-5">
-                <p className="text-xs uppercase tracking-[0.3em] text-blue-300">Approche</p>
-                <p className="mt-3 text-lg font-semibold text-white">Design système</p>
+              <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card-strong)] p-5">
+                <p className="text-xs uppercase tracking-[0.3em] text-[var(--secondary)]">Approche</p>
+                <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">Design système</p>
               </div>
             </div>
           </div>
@@ -62,19 +62,19 @@ export function About() {
 
           <div className="grid gap-4 sm:grid-cols-2">
             <GlassCard className="p-6">
-              <div className="flex items-center gap-3 text-blue-300">
+              <div className="flex items-center gap-3 text-[var(--secondary)]">
                 <Layers className="h-5 w-5" />
                 <p className="text-sm uppercase tracking-[0.35em]">Process</p>
               </div>
-              <p className="mt-4 text-lg font-semibold text-white">Récurrent & adaptable</p>
+              <p className="mt-4 text-lg font-semibold text-[var(--foreground)]">Récurrent & adaptable</p>
             </GlassCard>
 
             <GlassCard className="p-6">
-              <div className="flex items-center gap-3 text-orange-300">
+              <div className="flex items-center gap-3 text-[var(--accent)]">
                 <Clock3 className="h-5 w-5" />
                 <p className="text-sm uppercase tracking-[0.35em]">Livraison</p>
               </div>
-              <p className="mt-4 text-lg font-semibold text-white">Rapide et précis</p>
+              <p className="mt-4 text-lg font-semibold text-[var(--foreground)]">Rapide et précis</p>
             </GlassCard>
           </div>
         </div>

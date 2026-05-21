@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function ScrollProgress() {
   const [progress, setProgress] = useState(0);
+  const progressRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const updateProgress = () => {
@@ -15,11 +16,17 @@ export function ScrollProgress() {
     return () => window.removeEventListener("scroll", updateProgress);
   }, []);
 
+  useEffect(() => {
+    if (progressRef.current) {
+      progressRef.current.style.setProperty("--scroll-progress", String(progress));
+    }
+  }, [progress]);
+
   return (
     <div className="pointer-events-none fixed left-0 top-0 z-50 h-1 w-full bg-white/5">
       <div
-        className="h-full bg-gradient-to-r from-orange-300 via-orange-400 to-blue-400 transition-all duration-200"
-        style={{ transform: `scaleX(${progress})`, transformOrigin: "left" }}
+        ref={progressRef}
+        className="scroll-progress-fill h-full bg-gradient-to-r from-orange-300 via-orange-400 to-blue-400 transition-all duration-200"
       />
     </div>
   );

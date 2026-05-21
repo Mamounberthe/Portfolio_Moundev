@@ -1,4 +1,7 @@
+import plugin from "tailwindcss/plugin";
+
 export default {
+  darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
     container: {
@@ -44,6 +47,7 @@ export default {
       },
       backgroundImage: {
         "hero-glow": "radial-gradient(circle at top right, rgba(255, 122, 24, 0.22), transparent 24%), radial-gradient(circle at bottom left, rgba(75, 140, 255, 0.14), transparent 32%)",
+        "hero-glow-light": "radial-gradient(circle at top right, rgba(255, 122, 24, 0.12), transparent 26%), radial-gradient(circle at bottom left, rgba(75, 140, 255, 0.08), transparent 34%)",
         "grid-lines": "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
       },
       borderRadius: {
@@ -63,5 +67,9 @@ export default {
       "2xl": "1536px",
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addVariant }) => {
+      addVariant("light", ".light &");
+    }),
+  ],
 };

@@ -1,55 +1,61 @@
 import { motion } from "framer-motion";
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 
 type ButtonVariant = "solid" | "outline" | "ghost";
 
-type BaseProps = {
+type AnchorButtonProps = {
   children: ReactNode;
   variant?: ButtonVariant;
   className?: string;
-};
+  href: string;
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-type ButtonProps = BaseProps &
-  ({ href: string } & AnchorHTMLAttributes<HTMLAnchorElement>) |
-  ({} & ButtonHTMLAttributes<HTMLButtonElement>);
+type RegularButtonProps = {
+  children: ReactNode;
+  variant?: ButtonVariant;
+  className?: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
+
+type ButtonProps = AnchorButtonProps | RegularButtonProps;
+
+type AnchorProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "onDrag" | "onDragStart" | "onDragEnd" | "onDragEnter" | "onDragLeave" | "onDragOver" | "onDrop">;
+type ButtonElementProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onDrag" | "onDragStart" | "onDragEnd" | "onDragEnter" | "onDragLeave" | "onDragOver" | "onDrop">;
 
 const variantStyles: Record<ButtonVariant, string> = {
-  solid: "bg-orange-500 text-slate-950 hover:bg-orange-400 focus-visible:ring-orange-300/60",
-  outline: "border border-white/15 text-slate-100 hover:border-orange-300/40 hover:text-orange-300 focus-visible:ring-orange-300/30",
-  ghost: "bg-white/5 text-slate-100 hover:bg-white/10 focus-visible:ring-orange-300/30",
+  solid: "bg-[var(--accent)] text-[var(--foreground)] hover:bg-[var(--accent)]/90 focus-visible:ring-[var(--accent)]/50",
+  outline: "border border-[var(--border)] text-[var(--foreground)] hover:border-[var(--accent)] hover:text-[var(--accent)] focus-visible:ring-[var(--accent)]/30",
+  ghost: "bg-[var(--card)] text-[var(--foreground)] hover:bg-[var(--card-soft)] focus-visible:ring-[var(--accent)]/30",
 };
 
-export function Button({
-  children,
-  variant = "solid",
-  className = "",
-  href,
-  ...props
-}: ButtonProps) {
-  const base =
-    "inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-shadow duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-950/40";
+export function Button(props: ButtonProps) {
+  const { children, variant = "solid", className = "" } = props as {
+    children: ReactNode;
+    variant?: ButtonVariant;
+    className?: string;
+  };
 
-  if (href) {
+  const base =
+    "inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]";
+  const variantClass = variantStyles[variant];
+
+  if ("href" in props && props.href) {
+    const { href, ...rest } = props as AnchorButtonProps;
+    const anchorProps = rest as AnchorProps;
     return (
-      <motion.a
-        href={href}
-        whileHover={{ y: -2 }}
-        className={`${base} ${variantStyles[variant]} ${className}`}
-        {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}
-      >
-        {children}
-      </motion.a>
+      <motion.div whileHover={{ y: -2 }}>
+        <a href={href} className={`${base} ${variantClass} ${className}`} {...anchorProps}>
+          {children}
+        </a>
+      </motion.div>
     );
   }
 
+  const buttonProps = props as ButtonElementProps;
   return (
-    <motion.button
-      type="button"
-      whileHover={{ y: -2 }}
-      className={`${base} ${variantStyles[variant]} ${className}`}
-      {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}
-    >
-      {children}
-    </motion.button>
+    <motion.div whileHover={{ y: -2 }}>
+      <button type="button" className={`${base} ${variantClass} ${className}`} {...buttonProps}>
+        {children}
+      </button>
+    </motion.div>
   );
 }

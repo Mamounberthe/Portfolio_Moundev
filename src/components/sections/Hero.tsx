@@ -14,7 +14,7 @@ export function Hero() {
     <section
       id="hero"
       aria-label="Section d'accueil"
-      className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-surface-900/95 px-6 py-8 shadow-soft backdrop-blur-xl sm:px-10 sm:py-12"
+      className="relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--card)] px-6 py-8 shadow-soft backdrop-blur-xl sm:px-10 sm:py-12"
     >
       <div className="pointer-events-none absolute inset-0 bg-grid-lines bg-[length:260px_260px] opacity-10 mix-blend-overlay" />
       <div className="pointer-events-none absolute -left-28 top-6 h-72 w-72 rounded-full bg-orange-500/10 blur-3xl" />
@@ -29,16 +29,16 @@ export function Hero() {
           transition={{ duration: 0.85, ease: "easeOut" }}
           className="space-y-8"
         >
-          <div className="inline-flex items-center gap-3 rounded-full border border-orange-400/20 bg-orange-500/10 px-4 py-2 text-sm uppercase tracking-[0.35em] text-orange-200 shadow-[0_10px_50px_rgba(255,122,24,0.08)]">
+          <div className="inline-flex items-center gap-3 rounded-full border border-[var(--accent)]/20 bg-[var(--accent)]/10 px-4 py-2 text-sm uppercase tracking-[0.35em] text-[var(--accent)] shadow-[0_10px_50px_rgba(255,122,24,0.12)]">
             {portfolio.role}
           </div>
 
           <div className="space-y-6 max-w-3xl">
-            <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-semibold leading-tight text-[var(--foreground)] sm:text-5xl lg:text-6xl">
               <span className="block">Mamoun Berthe</span>
-              <span className="block text-slate-200">Je conçois des produits numériques élégants et performants.</span>
+              <span className="block text-[var(--muted)]">Je conçois des produits numériques élégants et performants.</span>
             </h1>
-            <p className="max-w-2xl text-slate-300 sm:text-lg leading-8">
+            <p className="max-w-2xl text-[var(--muted)] sm:text-lg leading-8">
               Étudiant en Informatique spécialisé React, Laravel et interfaces premium. Je transforme les idées en expériences digitales modernes,
               fluides et orientées produit.
             </p>
@@ -54,13 +54,13 @@ export function Hero() {
             </Button>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-slate-300">
+          <div className="flex flex-wrap items-center gap-4 text-[var(--muted)]">
             <a
               href={portfolio.socials[0].href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-100 transition hover:border-orange-300 hover:text-orange-300"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
               <Github className="h-5 w-5" />
             </a>
@@ -69,11 +69,11 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-100 transition hover:border-blue-300 hover:text-blue-300"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] transition hover:border-[var(--secondary)] hover:text-[var(--secondary)]"
             >
               <Linkedin className="h-5 w-5" />
             </a>
-            <span className="rounded-full border border-white/10 bg-slate-950/75 px-4 py-2 text-sm text-slate-300">
+            <span className="rounded-full border border-[var(--border)] bg-[var(--card-strong)] px-4 py-2 text-sm text-[var(--muted)]">
               Freelance / Startup engineer
             </span>
           </div>
@@ -88,14 +88,14 @@ export function Hero() {
           <GlassCard className="overflow-hidden p-6">
             <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-orange-500/10 to-transparent" />
             <div className="relative space-y-8">
-              <div className="flex items-center justify-between gap-4 rounded-[1.75rem] border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-100">
+              <div className="flex items-center justify-between gap-4 rounded-[1.75rem] border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-sm text-[var(--foreground)]">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-3xl bg-orange-500/10 text-orange-300">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-3xl bg-[var(--accent)]/10 text-[var(--accent)]">
                     <Sparkles className="h-5 w-5" />
                   </span>
                   <span>Produit premium</span>
                 </div>
-                <span className="rounded-full bg-slate-950/80 px-3 py-1 text-xs uppercase tracking-[0.3em] text-orange-300">
+                <span className="rounded-full bg-[var(--card-strong)] px-3 py-1 text-xs uppercase tracking-[0.3em] text-[var(--accent)]">
                   Startup-ready
                 </span>
               </div>
@@ -106,8 +106,8 @@ export function Hero() {
                 transition={{ type: "spring", stiffness: 120, damping: 16 }}
                 className="relative mx-auto h-56 w-56"
               >
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/15 via-transparent to-blue-400/15 blur-3xl" />
-                <div className="relative z-10 flex h-full w-full items-center justify-center rounded-full border border-white/10 bg-slate-900/80 p-1 shadow-glow">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--accent)]/15 via-transparent to-[var(--accent)]/15 blur-3xl" />
+                <div className="relative z-10 flex h-full w-full items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card-strong)]/70 p-1 shadow-glow">
                   <img
                     src={MounPhoto}
                     alt="Photo de profil de Mamoun Berthe"
@@ -124,13 +124,13 @@ export function Hero() {
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/90 px-5 py-4">
-                  <p className="text-xs uppercase tracking-[0.3em] text-orange-300">Focus</p>
-                  <p className="mt-3 text-lg font-semibold text-white">Interfaces glissantes</p>
+                <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card)] px-5 py-4 text-[var(--foreground)]">
+                  <p className="text-xs uppercase tracking-[0.3em] text-[var(--accent)]">Focus</p>
+                  <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">Interfaces glissantes</p>
                 </div>
-                <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/90 px-5 py-4">
-                  <p className="text-xs uppercase tracking-[0.3em] text-blue-300">Valeur</p>
-                  <p className="mt-3 text-lg font-semibold text-white">Performance & clarté</p>
+                <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card)] px-5 py-4 text-[var(--foreground)]">
+                  <p className="text-xs uppercase tracking-[0.3em] text-[var(--accent)]">Valeur</p>
+                  <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">Performance & clarté</p>
                 </div>
               </div>
             </div>
