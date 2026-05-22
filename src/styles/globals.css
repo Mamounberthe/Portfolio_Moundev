@@ -40,6 +40,59 @@
   --section-padding-x: 1.25rem;
   --radius-card: 1rem;
   --radius-pill: 1.5rem;
+
+  /* TYPOGRAPHY SYSTEM — PREMIUM MODERN */
+  /* Inter: body, UI, clarity. Weights: 400 (body), 500 (accent), 600 (semi-bold), 700 (bold) */
+
+  /* Font Sizes — Mobile First */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 1.875rem;
+  --fs-4xl: 2.25rem;
+  --fs-5xl: 3rem;
+  --fs-6xl: 3.75rem;
+  --fs-7xl: 4.5rem;
+
+  /* Line Heights — Premium Readability */
+  --lh-tight: 1.1;
+  --lh-snug: 1.25;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.65;
+  --lh-loose: 1.8;
+
+  /* Letter Spacing — Micro Typography */
+  --ls-tight: -0.02em;
+  --ls-normal: 0em;
+  --ls-wide: 0.025em;
+  --ls-wider: 0.05em;
+  --ls-widest: 0.1em;
+
+  /* Heading Scale */
+  --h1-size: var(--fs-5xl);
+  --h1-lh: var(--lh-tight);
+  --h1-ls: var(--ls-tight);
+
+  --h2-size: var(--fs-3xl);
+  --h2-lh: var(--lh-snug);
+  --h2-ls: var(--ls-tight);
+
+  --h3-size: var(--fs-2xl);
+  --h3-lh: var(--lh-snug);
+  --h3-ls: var(--ls-normal);
+
+  /* Body Scale */
+  --body-size: var(--fs-base);
+  --body-lh: var(--lh-relaxed);
+  --body-ls: var(--ls-normal);
+
+  /* Labels & UI */
+  --label-size: var(--fs-xs);
+  --label-lh: var(--lh-snug);
+  --label-ls: var(--ls-widest);
 }
 
 html.light {
@@ -80,6 +133,17 @@ html.light {
     --section-padding-x: 1.5rem;
     --radius-card: 1.5rem;
     --radius-pill: 2rem;
+
+    /* Tablet+ Typography Scaling */
+    --h1-size: var(--fs-6xl);
+    --h2-size: var(--fs-4xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    /* Desktop Typography Scaling */
+    --h1-size: var(--fs-7xl);
   }
 }
 
@@ -143,30 +207,52 @@ body::after {
   }
 
   body {
-    line-height: 1.65;
+    line-height: var(--lh-relaxed);
     min-height: 100vh;
+    font-weight: 400;
   }
 
   * {
     transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
   }
 
-  h1,
-  h2,
-  h3,
+  h1 {
+    font-size: var(--h1-size);
+    line-height: var(--h1-lh);
+    letter-spacing: var(--h1-ls);
+    font-weight: 700;
+    color: var(--foreground);
+  }
+
+  h2 {
+    font-size: var(--h2-size);
+    line-height: var(--h2-lh);
+    letter-spacing: var(--h2-ls);
+    font-weight: 600;
+    color: var(--foreground);
+  }
+
+  h3 {
+    font-size: var(--h3-size);
+    line-height: var(--h3-lh);
+    letter-spacing: var(--h3-ls);
+    font-weight: 600;
+    color: var(--foreground);
+  }
+
   h4,
   h5,
   h6 {
+    font-weight: 600;
     color: var(--foreground);
-    letter-spacing: -0.02em;
-    line-height: 1.05;
+    letter-spacing: var(--ls-tight);
   }
 
-  p,
-  span,
-  a,
-  li {
+  p {
+    font-size: var(--body-size);
+    line-height: var(--body-lh);
     color: var(--muted);
+    margin: 0;
   }
 
   a {
@@ -181,6 +267,12 @@ body::after {
     font: inherit;
   }
 
+  small,
+  .text-sm {
+    font-size: var(--fs-sm);
+    line-height: var(--lh-snug);
+  }
+
   ::selection {
     background: rgba(var(--accent-rgb), 0.25);
     color: #ffffff;
@@ -190,5 +282,65 @@ body::after {
 @layer utilities {
   .shadow-glow {
     box-shadow: 0 20px 60px rgba(var(--accent-rgb), 0.12);
+  }
+
+  /* Typography Utilities */
+  .text-hero {
+    font-size: var(--h1-size);
+    line-height: var(--h1-lh);
+    letter-spacing: var(--h1-ls);
+    font-weight: 700;
+  }
+
+  .text-section {
+    font-size: var(--h2-size);
+    line-height: var(--h2-lh);
+    letter-spacing: var(--h2-ls);
+    font-weight: 600;
+  }
+
+  .text-subsection {
+    font-size: var(--h3-size);
+    line-height: var(--h3-lh);
+    letter-spacing: var(--h3-ls);
+    font-weight: 600;
+  }
+
+  .text-body {
+    font-size: var(--body-size);
+    line-height: var(--body-lh);
+    letter-spacing: var(--body-ls);
+  }
+
+  .text-label {
+    font-size: var(--label-size);
+    line-height: var(--label-lh);
+    letter-spacing: var(--label-ls);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .tracking-wide-label {
+    letter-spacing: var(--ls-wider);
+  }
+
+  .leading-tight {
+    line-height: var(--lh-tight);
+  }
+
+  .leading-snug {
+    line-height: var(--lh-snug);
+  }
+
+  .leading-normal {
+    line-height: var(--lh-normal);
+  }
+
+  .leading-relaxed {
+    line-height: var(--lh-relaxed);
+  }
+
+  .leading-loose {
+    line-height: var(--lh-loose);
   }
 }

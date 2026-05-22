@@ -8,17 +8,17 @@ import { TagPill } from "../ui/TagPill";
 const skillCategories = [
   {
     title: "Front-end",
-    description: "Interfaces pixel-perfect réactives et responsives avec React et Tailwind.",
+    description: "Composants réactifs et performants avec gestion d'état optimisée et architecture UI modulaire.",
     icon: <Code2 className="h-5 w-5" />,
   },
   {
     title: "Back-end",
-    description: "APIs robustes et intégrations Laravel pensées pour les projets métier.",
+    description: "APIs RESTful scalables, gestion de données et logique métier pour produits en croissance.",
     icon: <Layers className="h-5 w-5" />,
   },
   {
-    title: "Qualité",
-    description: "Code maintenable, architecture claire et expérience projet maîtrisée.",
+    title: "Quality",
+    description: "Code maintenable, architecture claire et tests pour projets évolutifs long-terme.",
     icon: <ShieldCheck className="h-5 w-5" />,
   },
 ];
@@ -28,21 +28,21 @@ export function Skills() {
     <section id="skills" className="space-y-10">
       <SectionHeading
         eyebrow="Compétences"
-        title="Tech stack premium et approche produit"
-        description="J’apporte un savoir-faire complet pour construire des produits digitaux performants, fiables et élégants."
+        title="Stack technique pour produits scale-ready"
+        description="Une sélection d'outils et de méthodologies permettant de construire des interfaces robustes, maintenables et en croissance."
       />
 
       <GlassCard className="p-6 sm:p-8">
         <div className="space-y-4">
           <div className="inline-flex items-center gap-3 rounded-[1.5rem] border border-[var(--accent)]/20 bg-[var(--accent)]/10 px-4 py-2 text-[0.72rem] uppercase tracking-[0.35em] text-[var(--accent)] shadow-[0_18px_60px_rgba(var(--accent-rgb),0.12)]">
-            Approche
+            Tech Approach
           </div>
           <div className="space-y-3">
             <p className="text-[var(--foreground)] text-2xl font-semibold sm:text-3xl">
-              Une technique solide pour des produits digitaux durables.
+              Des choix technologiques alignés avec les objectifs produit.
             </p>
             <p className="text-[var(--muted)] leading-8">
-              Une stack stable et évolutive qui facilite la construction d’interfaces premium, fiables et faciles à maintenir.
+              React, Laravel et TypeScript pour maximiser la qualité et la maintenabilité. Chaque outil sert un purpose.
             </p>
           </div>
         </div>

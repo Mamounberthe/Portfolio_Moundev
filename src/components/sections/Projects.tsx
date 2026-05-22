@@ -8,8 +8,8 @@ export function Projects() {
     <section id="projects" className="space-y-10">
       <SectionHeading
         eyebrow="Projets"
-        title="Réalisations concrètes, orientées produit"
-        description="Des projets pensés pour la production, avec une interface premium, une architecture solide et une expérience utilisateur fluide."
+        title="Preuve de concept & execution"
+        description="Trois projets qui montrent une approche complète : architecture, données et expérience utilisateur maîtrisée."
       />
 
       <div className="grid gap-4 sm:grid-cols-[1fr_auto]">
@@ -20,7 +20,7 @@ export function Projects() {
           </p>
         </div>
         <div className="hidden items-center gap-3 rounded-full border border-[var(--accent)]/20 bg-[var(--accent)]/10 px-4 py-2 text-sm uppercase tracking-[0.28em] text-[var(--accent)] sm:inline-flex">
-          Premium design
+          Production grade
         </div>
       </div>
 
@@ -32,10 +32,10 @@ export function Projects() {
             </div>
             <div className="space-y-4">
               <p className="text-[var(--foreground)] text-2xl font-semibold tracking-[-0.03em] sm:text-3xl">
-                Conception de produits robustes avec une expérience utilisateur premium.
+                Trois réalisations techniquement ambitieuses.
               </p>
               <p className="text-[var(--muted)] leading-8">
-                Chaque réalisation met en avant des interfaces propres, des parcours fluides et une architecture prête pour la mise en production.
+                De la gestion de commandes en temps-réel à la localisation géospatiale, chaque projet démontre une maîtrise technique et une attention aux détails.
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-3">
@@ -45,11 +45,11 @@ export function Projects() {
               </div>
               <div className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--card-strong)] p-4 text-center">
                 <p className="text-xs uppercase tracking-[0.32em] text-[var(--accent)]">Stack</p>
-                <p className="mt-3 text-2xl font-semibold text-[var(--foreground)]">React + Laravel</p>
+                <p className="mt-3 text-2xl font-semibold text-[var(--foreground)]">Full-stack</p>
               </div>
               <div className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--card-strong)] p-4 text-center">
                 <p className="text-xs uppercase tracking-[0.32em] text-[var(--accent)]">Livraison</p>
-                <p className="mt-3 text-2xl font-semibold text-[var(--foreground)]">Premium</p>
+                <p className="mt-3 text-2xl font-semibold text-[var(--foreground)]">Production</p>
               </div>
             </div>
           </div>
@@ -59,15 +59,15 @@ export function Projects() {
           <div className="space-y-4">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <p className="text-sm uppercase tracking-[0.35em] text-[var(--muted)]">Focalisation</p>
-                <h3 className="mt-3 text-2xl font-semibold text-[var(--foreground)]">Des solutions claires et scalables</h3>
+                <p className="text-sm uppercase tracking-[0.35em] text-[var(--muted)]">Matériel</p>
+                <h3 className="mt-3 text-2xl font-semibold text-[var(--foreground)]">Restaurant, Pharmacies, Agriculture</h3>
               </div>
               <span className="inline-flex rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-semibold text-[var(--accent)]">
-                Priorité produit
+                Full-stack
               </span>
             </div>
             <p className="text-[var(--muted)] leading-8">
-              Les projets présentés reflètent une architecture pensée pour la croissance, des interfaces orientées utilisateur et une maintenance simplifiée.
+              Trois domaines différents qui montrent une capacité à s'adapter, apprendre rapidement et livrer des solutions intégrées.
             </p>
             <div className="grid gap-3">
               {portfolio.projects.slice(0, 2).map((project) => (

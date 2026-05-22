@@ -34,10 +34,10 @@ export function Hero() {
           <div className="space-y-5 text-center sm:text-left">
             <div className="max-w-3xl space-y-4">
               <h1 className="text-3xl font-semibold leading-tight text-[var(--foreground)] sm:text-4xl md:text-5xl lg:text-6xl">
-                Je crée des expériences produit élégantes et performantes.
+                Je conçois des produits digitaux clairs, fiables et orientés résultat.
               </h1>
               <p className="mx-auto max-w-2xl text-[var(--muted)] sm:mx-0 sm:text-lg leading-8">
-                Je conçois des interfaces digitales modernes et premium pour startups, agences et équipes produit. Au croisement de la tech, du design et de la croissance.
+                {portfolio.description}
               </p>
             </div>
 
@@ -52,7 +52,7 @@ export function Hero() {
                 </Button>
               </div>
               <div className="hidden items-center justify-end rounded-[1.5rem] border border-[var(--card-strong)]/70 bg-[var(--card-strong)]/80 px-4 py-3 text-sm text-[var(--muted)] sm:flex">
-                Mobile-first / Desktop-ready
+                Systèmes utilisateur & maintenance
               </div>
             </div>
           </div>
@@ -116,10 +116,10 @@ export function Hero() {
                   <span className="flex h-10 w-10 items-center justify-center rounded-[1rem] bg-[var(--accent)]/10 text-[var(--accent)]">
                     <Sparkles className="h-5 w-5" />
                   </span>
-                  <span>Produit premium</span>
+                  <span>Design produit</span>
                 </div>
                 <span className="rounded-full bg-[var(--card-strong)] px-3 py-1 text-[0.72rem] uppercase tracking-[0.28em] text-[var(--accent)]">
-                  Startup-ready
+                  Prêt production
                 </span>
               </div>
 
@@ -142,8 +142,8 @@ export function Hero() {
               <div className="grid gap-3 sm:grid-cols-2">
                 <TagPill label="React" />
                 <TagPill label="Laravel" />
-                <TagPill label="Tailwind" />
-                <TagPill label="API & Prod" />
+                <TagPill label="Architecture UI" />
+                <TagPill label="API évolutive" />
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">

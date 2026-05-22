@@ -9,8 +9,8 @@ export function About() {
     <section id="about" className="space-y-10">
       <SectionHeading
         eyebrow="À propos"
-        title="Histoire d’un développeur orienté produit"
-        description="Je combine technique, design et agilité pour livrer des expériences digitales premium, robustes et facilement évolutives."
+        title={portfolio.about.title}
+        description={portfolio.about.intro}
       />
 
       <motion.div
@@ -29,21 +29,18 @@ export function About() {
 
             <div className="space-y-5">
               <p className="text-[var(--muted)] leading-8">
-                {portfolio.description} Je construis des interfaces claires, modernes et fiables pour des projets web haut de gamme, en alliant design système, performance et qualité technique.
-              </p>
-              <p className="text-[var(--muted)] leading-8">
-                Mon approche produit place l’utilisateur et la scalabilité au centre de chaque décision technique, afin de rendre les projets robustes et convaincants.
+                {portfolio.about.philosophy}
               </p>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--card-strong)] p-5">
-                <p className="text-xs uppercase tracking-[0.3em] text-[var(--accent)]">Expertise</p>
-                <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">React & Laravel</p>
+                <p className="text-xs uppercase tracking-[0.3em] text-[var(--accent)]">Mentalité</p>
+                <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">Shipping matters</p>
               </div>
               <div className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--card-strong)] p-5">
-                <p className="text-xs uppercase tracking-[0.3em] text-[var(--secondary)]">Approche</p>
-                <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">Design systémique</p>
+                <p className="text-xs uppercase tracking-[0.3em] text-[var(--secondary)]">Philosophie</p>
+                <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">Tech invisible</p>
               </div>
             </div>
           </div>
