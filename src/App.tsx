@@ -11,16 +11,16 @@ import { Skills } from "./components/sections/Skills";
 
 function App() {
   return (
-    <div className="min-h-screen bg-[var(--page-bg)] text-[var(--text-primary)] transition-colors duration-500 ease-out">
+    <div className="min-h-screen bg-[var(--page-bg)] text-[var(--foreground)] transition-colors duration-500 ease-out">
       <ScrollProgress />
       <a
         href="#hero"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 rounded-full bg-[var(--surface-strong)] px-4 py-2 text-sm text-[var(--text-primary)] shadow-lg transition"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 rounded-full bg-[var(--surface-strong)] px-4 py-2 text-sm text-[var(--foreground)] shadow-lg transition"
       >
         Aller au contenu
       </a>
       <Navbar />
-      <main className="container mx-auto flex flex-col gap-14 px-4 py-8 sm:px-6 lg:px-8">
+      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-8 sm:px-6 lg:px-8">
         <Hero />
         <About />
         <Skills />

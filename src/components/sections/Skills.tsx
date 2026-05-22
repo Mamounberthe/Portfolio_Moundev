@@ -3,21 +3,22 @@ import { Code2, Layers, ShieldCheck } from "lucide-react";
 import { portfolio } from "../../data/portfolio";
 import { GlassCard } from "../ui/GlassCard";
 import { SectionHeading } from "../ui/SectionHeading";
+import { TagPill } from "../ui/TagPill";
 
 const skillCategories = [
   {
     title: "Front-end",
-    description: "Interface pixel-perfect, responsive et réactive avec React et Tailwind.",
+    description: "Interfaces pixel-perfect réactives et responsives avec React et Tailwind.",
     icon: <Code2 className="h-5 w-5" />,
   },
   {
     title: "Back-end",
-    description: "API robustes et intégration Laravel orientée performances.",
+    description: "APIs robustes et intégrations Laravel pensées pour les projets métier.",
     icon: <Layers className="h-5 w-5" />,
   },
   {
     title: "Qualité",
-    description: "Code propre, architecture claire et livraison orientée produit.",
+    description: "Code maintenable, architecture claire et expérience projet maîtrisée.",
     icon: <ShieldCheck className="h-5 w-5" />,
   },
 ];
@@ -31,32 +32,54 @@ export function Skills() {
         description="J’apporte un savoir-faire complet pour construire des produits digitaux performants, fiables et élégants."
       />
 
+      <GlassCard className="p-6 sm:p-8">
+        <div className="space-y-4">
+          <div className="inline-flex items-center gap-3 rounded-[1.5rem] border border-[var(--accent)]/20 bg-[var(--accent)]/10 px-4 py-2 text-[0.72rem] uppercase tracking-[0.35em] text-[var(--accent)] shadow-[0_18px_60px_rgba(var(--accent-rgb),0.12)]">
+            Approche
+          </div>
+          <div className="space-y-3">
+            <p className="text-[var(--foreground)] text-2xl font-semibold sm:text-3xl">
+              Une technique solide pour des produits digitaux durables.
+            </p>
+            <p className="text-[var(--muted)] leading-8">
+              Une stack stable et évolutive qui facilite la construction d’interfaces premium, fiables et faciles à maintenir.
+            </p>
+          </div>
+        </div>
+      </GlassCard>
+
       <motion.div
         initial={{ opacity: 0, y: 28 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.85, ease: "easeOut" }}
-        className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]"
+        className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]"
       >
         <GlassCard className="p-6 sm:p-8">
-          <div className="grid gap-5">
-            <div className="rounded-[2rem] border border-[var(--border)] bg-[var(--card-strong)] p-6">
-              <p className="text-sm uppercase tracking-[0.35em] text-[var(--accent)]">Stack</p>
-              <p className="mt-4 text-[var(--muted)] leading-8">
-                Un ensemble technique choisi pour des interfaces rapides, une architecture solide et des expériences utilisateur premium.
-              </p>
+          <div className="space-y-6">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm uppercase tracking-[0.35em] text-[var(--accent)]">Stack</p>
+                <h3 className="mt-3 text-2xl font-semibold text-[var(--foreground)] sm:text-3xl">
+                  Une base technique solide pour chaque projet.
+                </h3>
+              </div>
+              <span className="inline-flex rounded-full border border-[var(--border)] bg-[var(--card-strong)] px-4 py-2 text-sm font-semibold text-[var(--accent)]">
+                Produit fiable
+              </span>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2">
+            <p className="text-[var(--muted)] leading-8">
+              J’utilise une sélection d’outils et de méthodologies permettant de garantir des interfaces rapides, une architecture claire et une expérience maintenable.
+            </p>
+
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {portfolio.skills.map((skill) => (
-                <motion.div
+                <TagPill
                   key={skill}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
-                  className="flex min-h-[58px] items-center justify-center rounded-3xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-base font-medium text-[var(--foreground)] shadow-[0_10px_30px_rgba(0,0,0,0.12)]"
-                >
-                  {skill}
-                </motion.div>
+                  label={skill}
+                  className="w-full text-center text-sm font-semibold text-[var(--foreground)]"
+                />
               ))}
             </div>
           </div>
@@ -65,8 +88,8 @@ export function Skills() {
         <div className="space-y-4">
           {skillCategories.map((category) => (
             <GlassCard key={category.title} className="p-6">
-              <div className="flex items-center gap-3 text-[var(--foreground)]">
-                <span className="flex h-11 w-11 items-center justify-center rounded-3xl bg-[var(--card-strong)] text-[var(--accent)] shadow-glow">
+              <div className="flex items-start gap-4">
+                <span className="flex h-12 w-12 items-center justify-center rounded-[1rem] bg-[var(--card-strong)] text-[var(--accent)] shadow-glow">
                   {category.icon}
                 </span>
                 <div>

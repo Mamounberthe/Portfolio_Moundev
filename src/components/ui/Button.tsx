@@ -35,7 +35,7 @@ export function Button(props: ButtonProps) {
   };
 
   const base =
-    "inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]";
+    "inline-flex w-full min-h-[48px] items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] sm:w-auto";
   const variantClass = variantStyles[variant];
 
   if ("href" in props && props.href) {

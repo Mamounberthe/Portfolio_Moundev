@@ -10,7 +10,7 @@ export function About() {
       <SectionHeading
         eyebrow="À propos"
         title="Histoire d’un développeur orienté produit"
-        description="Je combine technique et sens produit pour créer des expériences digitales premium, claires et scalables." 
+        description="Je combine technique, design et agilité pour livrer des expériences digitales premium, robustes et facilement évolutives."
       />
 
       <motion.div
@@ -18,63 +18,72 @@ export function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="grid gap-6 lg:grid-cols-[1.45fr_0.9fr]"
+        className="grid gap-6 lg:grid-cols-[1.4fr_0.9fr]"
       >
-        <GlassCard className="relative overflow-hidden p-6 sm:p-8 lg:p-10">
-          <div className="pointer-events-none absolute left-0 top-0 h-24 w-24 rounded-full bg-[var(--accent)]/10 blur-3xl" />
-          <div className="space-y-7">
-            <div className="space-y-4">
+        <GlassCard className="relative overflow-hidden p-5 sm:p-6 lg:p-8">
+          <div className="pointer-events-none absolute right-0 top-6 h-28 w-28 rounded-full bg-[var(--accent)]/10 blur-3xl" />
+          <div className="space-y-6">
+            <div className="inline-flex rounded-[1.5rem] border border-[var(--accent)]/20 bg-[var(--accent)]/10 px-4 py-2 text-[0.7rem] uppercase tracking-[0.35em] text-[var(--accent)] shadow-[0_10px_50px_rgba(var(--accent-rgb),0.12)]">
+              UX story
+            </div>
+
+            <div className="space-y-5">
               <p className="text-[var(--muted)] leading-8">
-                {portfolio.description} Je construis des interfaces claires et modernes pour des projets web haut de gamme, en alliant design, performance et qualité technique.
+                {portfolio.description} Je construis des interfaces claires, modernes et fiables pour des projets web haut de gamme, en alliant design système, performance et qualité technique.
               </p>
               <p className="text-[var(--muted)] leading-8">
-                Mon approche est orientée produit : je conçois des expériences qui donnent confiance aux décideurs et facilitent la montée en charge des équipes.
+                Mon approche produit place l’utilisateur et la scalabilité au centre de chaque décision technique, afin de rendre les projets robustes et convaincants.
               </p>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card-strong)] p-6">
+              <div className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--card-strong)] p-5">
                 <p className="text-xs uppercase tracking-[0.3em] text-[var(--accent)]">Expertise</p>
                 <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">React & Laravel</p>
               </div>
-              <div className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--card-strong)] p-6">
+              <div className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--card-strong)] p-5">
                 <p className="text-xs uppercase tracking-[0.3em] text-[var(--secondary)]">Approche</p>
-                <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">Design système</p>
+                <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">Design systémique</p>
               </div>
             </div>
           </div>
         </GlassCard>
 
         <div className="space-y-5">
-          <GlassCard className="p-6">
-            <div className="flex items-center gap-3 text-orange-300">
-              <Sparkles className="h-5 w-5" />
-              <p className="text-sm uppercase tracking-[0.35em]">Pourquoi moi</p>
+          <GlassCard className="overflow-hidden p-5 sm:p-6">
+            <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[var(--accent)]/10 to-transparent" />
+            <div className="relative space-y-6">
+              <div className="flex items-center gap-3 text-[var(--accent)]">
+                <Sparkles className="h-5 w-5" />
+                <p className="text-sm uppercase tracking-[0.35em]">Pourquoi moi</p>
+              </div>
+              <ul className="mt-5 space-y-4 text-[var(--muted)]">
+                {portfolio.highlights.map((item) => (
+                  <li key={item} className="rounded-[1.25rem] border border-[var(--border)] bg-[var(--card-soft)] p-4 leading-7">
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="mt-6 space-y-4 text-slate-300">
-              {portfolio.highlights.map((item) => (
-                <li key={item} className="rounded-3xl border border-white/5 bg-white/5 p-4 leading-7">
-                  {item}
-                </li>
-              ))}
-            </ul>
           </GlassCard>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <GlassCard className="p-6">
+            <GlassCard className="p-5">
               <div className="flex items-center gap-3 text-[var(--secondary)]">
                 <Layers className="h-5 w-5" />
                 <p className="text-sm uppercase tracking-[0.35em]">Process</p>
               </div>
-              <p className="mt-4 text-lg font-semibold text-[var(--foreground)]">Récurrent & adaptable</p>
+              <p className="mt-4 text-lg font-semibold text-[var(--foreground)]">Itérations rapides</p>
+              <p className="mt-2 text-[var(--muted)] leading-7">Des cycles courts, des validations claires, des livrables immédiatement exploitables.</p>
             </GlassCard>
 
-            <GlassCard className="p-6">
+            <GlassCard className="p-5">
               <div className="flex items-center gap-3 text-[var(--accent)]">
                 <Clock3 className="h-5 w-5" />
                 <p className="text-sm uppercase tracking-[0.35em]">Livraison</p>
               </div>
-              <p className="mt-4 text-lg font-semibold text-[var(--foreground)]">Rapide et précis</p>
+              <p className="mt-4 text-lg font-semibold text-[var(--foreground)]">Focus qualité</p>
+              <p className="mt-2 text-[var(--muted)] leading-7">Des projets livrés propres, testés et prêts à évoluer rapidement.</p>
             </GlassCard>
           </div>
         </div>
