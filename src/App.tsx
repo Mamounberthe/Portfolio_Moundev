@@ -11,7 +11,7 @@ import { Skills } from "./components/sections/Skills";
 
 function App() {
   return (
-    <div className="min-h-screen bg-[var(--page-bg)] text-[var(--foreground)] transition-colors duration-500 ease-out">
+    <div className="bg-[var(--page-bg)] text-[var(--foreground)] transition-colors duration-500 ease-out">
       <ScrollProgress />
       <a
         href="#hero"
@@ -20,8 +20,12 @@ function App() {
         Aller au contenu
       </a>
       <Navbar />
+      
+      {/* Hero fullscreen section (outside main constraint) */}
+      <Hero />
+      
+      {/* Main content with max-width constraint */}
       <main className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-8 sm:px-6 lg:px-8">
-        <Hero />
         <About />
         <Skills />
         <Services />

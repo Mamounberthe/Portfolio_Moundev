@@ -1,165 +1,215 @@
-import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Github, Linkedin, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, Github, Linkedin, ChevronDown } from "lucide-react";
 import { Button } from "../ui/Button";
-import { GlassCard } from "../ui/GlassCard";
-import { TagPill } from "../ui/TagPill";
 import { portfolio } from "../../data/portfolio";
 import MounPhoto from "../../assets/Moun.jpeg";
 
 export function Hero() {
-  const reduce = useReducedMotion();
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 1, ease: "easeOut" },
+    },
+  };
+
+  const floatingVariants = {
+    animate: {
+      y: [0, -20, 0],
+      transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+    },
+  };
+
+  const scrollIndicatorVariants = {
+    animate: {
+      y: [0, 8, 0],
+      opacity: [0.5, 1, 0.5],
+      transition: { duration: 2, repeat: Infinity },
+    },
+  };
 
   return (
     <section
       id="hero"
-      aria-label="Section d'accueil"
-      className="relative overflow-hidden rounded-[1.5rem] border border-[var(--border)] bg-[var(--card)] px-5 py-8 shadow-soft backdrop-blur-xl sm:px-8 sm:py-10"
+      className="relative min-h-screen w-full overflow-hidden bg-[var(--background)]"
     >
-      <div className="pointer-events-none absolute -left-16 top-6 h-56 w-56 rounded-full bg-[var(--accent)]/12 blur-3xl" />
-      <div className="pointer-events-none absolute right-0 top-10 h-72 w-72 rounded-full bg-[var(--secondary)]/12 blur-3xl" />
-      <div className="pointer-events-none absolute left-1/2 top-0 h-36 w-36 -translate-x-1/2 rounded-full bg-[var(--accent)]/8 blur-3xl" />
-
-      <div className="relative grid gap-8 lg:grid-cols-[1.2fr_0.9fr] lg:items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.85, ease: "easeOut" }}
-          className="order-2 space-y-6 lg:order-1"
-        >
-          <div className="inline-flex items-center gap-3 rounded-[2rem] border border-[var(--accent)]/20 bg-[var(--accent)]/10 px-4 py-2 text-[0.72rem] uppercase tracking-[0.35em] text-[var(--accent)] shadow-[0_18px_60px_rgba(var(--accent-rgb),0.12)]">
-            {portfolio.role}
-          </div>
-
-          <div className="space-y-5 text-center sm:text-left">
-            <div className="max-w-3xl space-y-4">
-              <h1 className="text-3xl font-semibold leading-tight text-[var(--foreground)] sm:text-4xl md:text-5xl lg:text-6xl">
-                Je conçois des produits digitaux clairs, fiables et orientés résultat.
-              </h1>
-              <p className="mx-auto max-w-2xl text-[var(--muted)] sm:mx-0 sm:text-lg leading-8">
-                {portfolio.description}
-              </p>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto]">
-              <div className="grid gap-3 sm:flex sm:items-center sm:gap-3">
-                <Button href="#contact" className="w-full sm:w-auto" variant="solid">
-                  Me contacter
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-                <Button href="#projects" className="w-full sm:w-auto" variant="outline">
-                  Voir mes projets
-                </Button>
-              </div>
-              <div className="hidden items-center justify-end rounded-[1.5rem] border border-[var(--card-strong)]/70 bg-[var(--card-strong)]/80 px-4 py-3 text-sm text-[var(--muted)] sm:flex">
-                Systèmes utilisateur & maintenance
-              </div>
-            </div>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-            <div className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--card-strong)] px-4 py-4 text-center">
-              <p className="text-xs uppercase tracking-[0.32em] text-[var(--accent)]">Temps</p>
-              <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">Rapide</p>
-            </div>
-            <div className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--card-strong)] px-4 py-4 text-center">
-              <p className="text-xs uppercase tracking-[0.32em] text-[var(--accent)]">Clarté</p>
-              <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">Optimisée</p>
-            </div>
-            <div className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--card-strong)] px-4 py-4 text-center">
-              <p className="text-xs uppercase tracking-[0.32em] text-[var(--accent)]">Design</p>
-              <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">Systémique</p>
-            </div>
-            <div className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--card-strong)] px-4 py-4 text-center">
-              <p className="text-xs uppercase tracking-[0.32em] text-[var(--accent)]">Impact</p>
-              <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">Conversion</p>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-center gap-3 text-[var(--muted)] sm:flex-row sm:justify-start">
-            <a
-              href={portfolio.socials[0].href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-[1rem] border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
-            >
-              <Github className="h-5 w-5" />
-            </a>
-            <a
-              href={portfolio.socials[1].href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-[1rem] border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] transition hover:border-[var(--secondary)] hover:text-[var(--secondary)]"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <span className="inline-flex rounded-[1.5rem] border border-[var(--border)] bg-[var(--card-strong)] px-4 py-2 text-sm text-[var(--muted)]">
-              Freelance / Startup engineer
-            </span>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-          className="relative mx-auto w-full max-w-[420px] order-1 lg:order-2"
-        >
-          <GlassCard className="overflow-hidden p-5 sm:p-6 lg:p-8">
-            <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[var(--accent)]/20 to-transparent" />
-            <div className="relative space-y-7">
-              <div className="flex items-center justify-between gap-3 rounded-[1.5rem] border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-sm text-[var(--foreground)]">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-[1rem] bg-[var(--accent)]/10 text-[var(--accent)]">
-                    <Sparkles className="h-5 w-5" />
-                  </span>
-                  <span>Design produit</span>
-                </div>
-                <span className="rounded-full bg-[var(--card-strong)] px-3 py-1 text-[0.72rem] uppercase tracking-[0.28em] text-[var(--accent)]">
-                  Prêt production
-                </span>
-              </div>
-
-              <motion.div
-                aria-hidden
-                whileHover={reduce ? {} : { scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 120, damping: 16 }}
-                className="relative mx-auto h-64 w-64 sm:h-72 sm:w-72"
-              >
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--accent)]/15 via-transparent to-[var(--accent)]/15 blur-3xl" />
-                <div className="relative z-10 flex h-full w-full items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card-strong)]/75 p-1 shadow-glow">
-                  <img
-                    src={MounPhoto}
-                    alt="Photo de profil de Mamoun Berthe"
-                    className="h-full w-full rounded-full object-cover object-center"
-                  />
-                </div>
-              </motion.div>
-
-              <div className="grid gap-3 sm:grid-cols-2">
-                <TagPill label="React" />
-                <TagPill label="Laravel" />
-                <TagPill label="Architecture UI" />
-                <TagPill label="API évolutive" />
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--card)] px-5 py-4 text-[var(--foreground)]">
-                  <p className="text-xs uppercase tracking-[0.3em] text-[var(--accent)]">Focus</p>
-                  <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">Interfaces glissantes</p>
-                </div>
-                <div className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--card)] px-5 py-4 text-[var(--foreground)]">
-                  <p className="text-xs uppercase tracking-[0.3em] text-[var(--accent)]">Valeur</p>
-                  <p className="mt-3 text-lg font-semibold text-[var(--foreground)]">Performance & clarté</p>
-                </div>
-              </div>
-            </div>
-          </GlassCard>
-        </motion.div>
+      {/* Background gradients */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-1/2 -left-1/4 h-96 w-96 rounded-full bg-[var(--accent)]/8 blur-3xl" />
+        <div className="absolute -bottom-1/2 -right-1/4 h-96 w-96 rounded-full bg-[var(--secondary)]/5 blur-3xl" />
+        <div className="absolute top-1/3 right-1/4 h-72 w-72 rounded-full bg-[var(--accent)]/5 blur-3xl" />
       </div>
+
+      {/* Content container */}
+      <motion.div
+        className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col items-center justify-center px-4 sm:px-6 lg:px-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* Two column grid */}
+        <div className="grid w-full gap-8 lg:gap-16 lg:grid-cols-2 lg:items-center">
+          {/* Left content */}
+          <motion.div className="flex flex-col justify-center space-y-8">
+            {/* Intro label */}
+            <motion.div variants={itemVariants}>
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[var(--accent)]">
+                Developer & Product Designer
+              </span>
+            </motion.div>
+
+            {/* Main heading */}
+            <motion.h1
+              variants={itemVariants}
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight text-[var(--foreground)]"
+            >
+              Crafting digital experiences that matter
+            </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              variants={itemVariants}
+              className="max-w-xl text-lg text-[var(--text-muted)] leading-relaxed"
+            >
+              {portfolio.description}
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col gap-4 sm:flex-row sm:gap-3"
+            >
+              <Button href="#projects" variant="solid" className="group">
+                <span>View my work</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+              <Button href="#contact" variant="outline">
+                Let's talk
+              </Button>
+            </motion.div>
+
+            {/* Social links */}
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-4 pt-4"
+            >
+              <a
+                href={portfolio.socials[0].href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="group inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[var(--border)] bg-transparent transition-all hover:border-[var(--accent)] hover:bg-[var(--accent)]/10"
+              >
+                <Github className="h-5 w-5 text-[var(--text-muted)] transition group-hover:text-[var(--accent)]" />
+              </a>
+              <a
+                href={portfolio.socials[1].href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="group inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[var(--border)] bg-transparent transition-all hover:border-[var(--secondary)] hover:bg-[var(--secondary)]/10"
+              >
+                <Linkedin className="h-5 w-5 text-[var(--text-muted)] transition group-hover:text-[var(--secondary)]" />
+              </a>
+              <span className="h-px w-12 bg-gradient-to-r from-[var(--border)] to-transparent" />
+              <span className="text-sm text-[var(--text-muted)]">Available for projects</span>
+            </motion.div>
+          </motion.div>
+
+          {/* Right visual composition */}
+          <motion.div
+            variants={imageVariants}
+            className="relative flex items-center justify-center overflow-visible"
+          >
+            {/* Animated gradient circle background */}
+            <motion.div
+              animate={floatingVariants.animate}
+              className="absolute inset-0 flex items-center justify-center"
+            >
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[var(--accent)]/20 via-transparent to-[var(--secondary)]/20 blur-3xl" />
+              <div className="absolute inset-1/4 rounded-full bg-gradient-to-t from-[var(--accent)]/10 to-transparent blur-2xl" />
+            </motion.div>
+
+            {/* Profile image container */}
+            <motion.div
+              animate={floatingVariants.animate}
+              className="relative z-10 h-64 w-64 sm:h-80 sm:w-80 lg:h-96 lg:w-96"
+            >
+              {/* Glow ring */}
+              <div className="absolute inset-0 rounded-full border border-[var(--accent)]/30 shadow-[0_0_60px_rgba(var(--accent-rgb),0.2)]" />
+
+              {/* Image */}
+              <img
+                src={MounPhoto}
+                alt="Mamoun Berthe"
+                className="h-full w-full rounded-full object-cover object-center"
+              />
+
+              {/* Soft inner glow */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/5 via-transparent to-black/5" />
+            </motion.div>
+
+            {/* Floating card - status */}
+            <motion.div
+              animate={{
+                y: [0, 15, 0],
+                transition: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+              }}
+              className="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 lg:bottom-12 lg:left-12 z-50 rounded-2xl border border-[var(--border)] bg-[var(--card)]/80 backdrop-blur px-4 py-3 sm:px-6 sm:py-4 shadow-lg"
+            >
+              <p className="text-xs sm:text-sm font-semibold text-[var(--accent)]">⚡ Production Ready</p>
+              <p className="text-[0.65rem] sm:text-xs text-[var(--text-muted)] mt-1">Full-stack solutions</p>
+            </motion.div>
+
+            {/* Floating card - tech stack */}
+            <motion.div
+              animate={{
+                y: [0, -15, 0],
+                transition: { duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 },
+              }}
+              className="absolute top-4 right-4 sm:top-8 sm:right-8 lg:top-12 lg:right-12 z-20 rounded-2xl border border-[var(--border)] bg-[var(--card)]/80 backdrop-blur px-4 py-3 sm:px-6 sm:py-4 shadow-lg"
+            >
+              <p className="text-xs sm:text-sm font-semibold text-[var(--secondary)]">React + Laravel</p>
+              <p className="text-[0.65rem] sm:text-xs text-[var(--text-muted)] mt-1">Modern tech stack</p>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          variants={itemVariants}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <motion.div
+            animate={scrollIndicatorVariants.animate}
+            className="flex flex-col items-center gap-2 text-[var(--text-muted)]"
+          >
+            <span className="text-xs uppercase tracking-widest font-semibold">Scroll</span>
+            <ChevronDown className="h-4 w-4" />
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
